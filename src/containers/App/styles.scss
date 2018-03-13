@@ -1,0 +1,32 @@
+ .container{
+   background-color: white;
+   margin: 0px;
+   width: 100%;
+   padding: 0px;
+   min-height: 800px;
+ }
+
+ body{
+    margin: 0px;
+ }
+
+ a{
+   display: inline-block;
+   color: dimgray;
+   text-decoration: none;
+   padding: 10px 5px 10px 5px;
+   width: 120px;
+   text-align: center;
+   font-weight: 600;
+   border-right: white solid 2px;
+   border-left: white solid 2px;
+   font-family: Helvetica, Geneva, sans-serif;
+ }
+
+ a:hover {
+   color: red;
+   font-weight: 600;
+   width: 120px;
+   padding: 10px 5px 10px 5px;
+   font-family: Helvetica, Geneva, sans-serif;
+   text-decoration: none; }

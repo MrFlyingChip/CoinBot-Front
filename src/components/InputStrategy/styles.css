@@ -1,0 +1,16 @@
+.input {
+  margin: 20px; }
+
+input {
+  display: block;
+  margin-top: 5px; }
+
+select {
+  display: block;
+  margin-top: 5px; }
+
+.checkbox {
+  display: inline-block; }
+
+.none {
+  display: none; }
