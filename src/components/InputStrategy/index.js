@@ -8,8 +8,10 @@ export class InputStrategy extends Component{
     addNewStrategy(e){
         e.preventDefault(e);
         let parts = [];
-        for(let i = 0; i < this.partsCount; i++){
-            parts.push(document.getElementById('partClose' + i).value);
+        if(this.checkboxChecked) {
+            for(let i = 0; i < this.partsCount; i++){
+                parts.push(document.getElementById('partClose' + i).value);
+            }
         }
         const data = {
             coin : document.getElementById('coin').value,
@@ -30,10 +32,12 @@ export class InputStrategy extends Component{
         e.preventDefault(e);
         this.partsCount = document.getElementById('partsNumber').value || 0;
         this.parts = [];
-        for(let i = 0; i < this.partsCount; i++){
-            this.parts.push(i);
+        if(this.checkboxChecked){
+            for(let i = 0; i < this.partsCount; i++){
+                this.parts.push(i);
+            }
+            this.forceUpdate();
         }
-        this.forceUpdate()
     }
 
     toggleCheckBox(e){
