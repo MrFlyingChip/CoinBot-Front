@@ -3,6 +3,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import * as AdminActions from "../../actions/AdminActions";
 import './styles.css'
+import {Link} from "react-router";
 
 export class Databases extends Component{
     componentWillMount(){
@@ -22,6 +23,7 @@ export class Databases extends Component{
                 <tr key={coin._id}>
                     <td>{coin.coin}</td>
                     <td>{coin.date}</td>
+                    <td><p><Link to={'/database_delete/' + coin._id}>Удалить</Link></p></td>
                 </tr>
             )
         });
@@ -32,6 +34,7 @@ export class Databases extends Component{
                         <tr>
                             <td>Название базы данных</td>
                             <td>Дата загрузки</td>
+                            <td>Действия</td>
                         </tr>
                     </thead>
                     <tbody>

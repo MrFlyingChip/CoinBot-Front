@@ -5,7 +5,9 @@ import {FETCH_DATABASES,
         ADD_DEAL,
         FETCH_STRATEGIES,
         FETCH_DEALS,
+        DELETE_DATABASE,
         FETCH_STRATEGIES_INFO,
+        FETCH_STRATEGY_INFO,
         FETCH_STRATEGY,
         CHANGE_STRATEGY,
         DELETE_STRATEGY} from '../constants/Admin'
@@ -15,6 +17,7 @@ const initialState = {
     strategy : {},
     strategies : [],
     strategies_info : [],
+    strategy_info: [],
     deals: [],
     id: null
 };
@@ -40,6 +43,11 @@ export default function adminstate(state = initialState, action) {
                 ...state,
                 strategies_info: action.payload.strategies_info
             };
+        case FETCH_STRATEGY_INFO:
+            return {
+                ...state,
+                strategy_info: action.payload.strategy_info
+            };
         case FETCH_DEALS:
             return {
                 ...state,
@@ -62,6 +70,10 @@ export default function adminstate(state = initialState, action) {
                 ...state
             };
         case DELETE_STRATEGY:
+            return {
+                ...state
+            };
+        case DELETE_DATABASE:
             return {
                 ...state
             };

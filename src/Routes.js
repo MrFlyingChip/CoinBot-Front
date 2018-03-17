@@ -10,6 +10,8 @@ import Deals from "./components/Deals";
 import StrategiesInfo from "./components/StrategiesInfo";
 import ChangeStrategy from "./components/ChangeStrategy";
 import DeleteStrategy from "./components/DeleteStrategy";
+import DeleteDatabase from "./components/DeleteDatabase";
+import StrategyInfo from "./components/StrategyInfo";
 
 
 export const routes =(
@@ -22,6 +24,8 @@ export const routes =(
             <Route path='/input_deal' component={InputDeal}/>
             <Route path='/strategy/:strategy' component={ChangeStrategy}/>
             <Route path='/strategy_delete/:strategy' component={DeleteStrategy}/>
+            <Route path='/strategy_info/:strategy/:startDate/:finishDate' component={StrategyInfo}/>
+            <Route path='/database_delete/:coin' component={DeleteDatabase}/>
         </Route>
         <Route path='*' component={NotFound} />
     </div>

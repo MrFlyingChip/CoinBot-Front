@@ -8,7 +8,7 @@ import {
     ADD_DEAL,
     FETCH_DEALS,
     FETCH_STRATEGIES_INFO,
-    DELETE_STRATEGY
+    DELETE_STRATEGY, DELETE_DATABASE, FETCH_STRATEGY_INFO
 } from "../constants/Admin";
 import {browserHistory} from "react-router";
 import {API_URL} from "../constants/Library";
@@ -138,20 +138,68 @@ export function deleteStrategy(id) {
     }
 }
 
-export function fetchStrategiesInfo() {
+export function deleteDatabase(id) {
     return (dispatch) => {
         let xhr1 = new XMLHttpRequest();
-        const url = API_URL + '/strategies_info';
-        xhr1.open("GET", url, false);
+        const url = API_URL + '/coin/' + id;
+        xhr1.open("DELETE", url, false);
         xhr1.send();
+        console.log(xhr1.response);
         let res = JSON.parse(xhr1.response);
         if(res.error){
             alert(res.error)
+        } else {
+            alert(res.message)
+
+        }
+        browserHistory.push('/databases');
+        dispatch({
+            type: DELETE_DATABASE,
+            payload: {
+            }
+        })
+    }
+}
+
+export function fetchStrategiesInfo(payload) {
+    return (dispatch) => {
+        let xhr1 = new XMLHttpRequest();
+        const url = API_URL + '/strategies_info';
+        xhr1.open("POST", url, false);
+        xhr1.setRequestHeader('Content-Type', 'application/json');
+        let data = JSON.stringify(payload);
+        console.log(payload);
+        xhr1.send(data);
+        let res = JSON.parse(xhr1.response);
+        if(res.error){
+            alert(res.error.message)
         }
         dispatch({
             type: FETCH_STRATEGIES_INFO,
             payload: {
                 strategies_info: res
+            }
+        })
+    }
+}
+
+export function fetchStrategyInfo(payload, id) {
+    return (dispatch) => {
+        let xhr1 = new XMLHttpRequest();
+        const url = API_URL + '/strategy_info/' + id;
+        xhr1.open("POST", url, false);
+        xhr1.setRequestHeader('Content-Type', 'application/json');
+        let data = JSON.stringify(payload);
+        console.log(payload);
+        xhr1.send(data);
+        let res = JSON.parse(xhr1.response);
+        if(res.error){
+            alert(res.error.message)
+        }
+        dispatch({
+            type: FETCH_STRATEGY_INFO,
+            payload: {
+                strategy_info: res
             }
         })
     }

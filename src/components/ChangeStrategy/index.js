@@ -80,7 +80,7 @@ export class ChangeStrategy extends Component {
         });
 
         const input_form = (
-                <form onSubmit={this.changeStrategy.bind(this)}>
+                <form onSubmit={this.changeStrategy.bind(this)} key={strategy._id}>
                     <p>Выберите базу данных:
                         <select id={'coin'} required defaultValue={strategy.coin || ''}>
                             {coinsArr}
