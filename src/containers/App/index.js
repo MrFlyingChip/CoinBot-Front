@@ -16,7 +16,6 @@ export class App extends Component{
                 <Link to={'/databases'}>Базы данных</Link>
                 <Link to={'/strategy_info'}>Стратегии</Link>
                 <Link to={'/input_strategy'}>Добавить стратегию</Link>
-                <Link to={'/deals'}>Сделки</Link>
                 <Link to={'/input_deal'}>Добавить сделку</Link>
                 {this.props.children}
             </div>
